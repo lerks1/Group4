@@ -21,7 +21,41 @@ public class Main {
 
 			fileReader.close();
 		} catch (FileNotFoundException e) {e.printStackTrace();}
+		
+		ArrayList <Double> lkX = new ArrayList <Double>();
+		ArrayList <Double> rkX = new ArrayList <Double>();
+		for (Reading r : readings)
+		{
+			if (r.getSensor().equals("leftKnee"))
+			{
+				lkX.add(r.getX());
+			}
+			if (r.getSensor().equals("rightKnee"))
+			{
+				rkX.add(r.getX());
+			}
+		}
+		
+		double sumL = 0;
+		double sumR = 0;
+		
+		for (Double n : lkX)
+		{
+			sumL += n;
+			System.out.println(n);
+		}
+		
+		for (Double n : rkX)
+		{
+			sumR += n;
+		}
+		
+		System.out.println("Average L = " + (sumL / lkX.size()));
+		System.out.println("Average R = " + (sumR / rkX.size()));
+		
 	}
+	
+	
 
 }
 
